@@ -1,0 +1,30 @@
+
+header {
+  background-color: #3498db; /* Cambia el color de fondo según tus preferencias */
+  padding: 20px; /* Añade relleno alrededor del contenido del header */
+  /* Otros estilos que desees aplicar al header */
+}
+
+header nav a img{
+  width:100px ;
+  height: auto;
+}
+
+header nav a {
+  background-color: blue;
+  text-decoration: none; /* Elimina el subrayado predeterminado */
+  color: #e7ecf0; /* Cambia el color del texto del enlace */
+  transition: color 0.3s ease; /* Agrega una transición suave al cambio de color */
+  margin: 20px;
+  padding: 10px;
+  font-size: 24px;
+}
+
+footer{
+  background-color: blue;
+  color: #e7ecf0; /* Cambia el color del texto del enlace */
+  margin: 20px;
+  padding: 10px;
+  font-size: 24px;
+
+}

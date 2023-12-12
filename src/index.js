@@ -20,4 +20,27 @@ TODO:
 
 // usageExample.js
 
+import { renderHome } from "./views/home.js";
+import { renderTargetas } from "./views/targetas.js";
+import { renderChatGrupal} from "./views/chatGrupal.js";
+import { onURLChange, setRootElement, setRoutes } from "./router.js";
+import { error } from "./views/error.js";
 
+const routes = {
+  "/home": renderHome,
+  "/error": error,
+  "/conocenos": renderTargetas,
+  "/chat-grupal": renderChatGrupal,
+  "/api-key": renderApiKey,
+
+};
+
+
+const rootRender = document.querySelector("#root");
+setRoutes(routes);
+setRootElement(rootRender);
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  
+  onURLChange(event.target.location.pathname);
+});
