@@ -2,6 +2,7 @@
  import { renderHeader } from "../components/header.js";
  import { renderFooter } from "../components/footer.js";
 
+
 export const renderHome = () => {
   
   const section = document.createElement("section");
@@ -22,11 +23,11 @@ export const renderHome = () => {
   divTexto.classList.add("textoHome");
 
   const h1 = document.createElement("h1");
-  h1.innerHTML = "Mujeres que contribuyeron a la ciencia y la tecnologia";
+  h1.innerHTML = "Chatea con la Historia: Conectando Generaciones a través de las Voces Pioneras de Mujeres que contribuyeron a la ciencia y la tecnologia";
 
   const p = document.createElement("p");
   p.innerHTML =
-    "Si quieres chatear con una de nosotras haz clic en <a href='#conocenos'>conócenos</a>, filtra por categoría y elige con quién chatear.";
+    "Sumérgete en una experiencia única donde la historia cobra vida. No solo descubrirás las increíbles contribuciones de las mujeres pioneras en ciencia y tecnología, sino que también tendrás la oportunidad de charlar directamente con ellas. Nuestra inteligencia artificial te permite entablar conversaciones virtuales con estos personajes inspiradores. ¡Pregunta, aprende y déjate cautivar por las historias de estas visionarias que cambiaron el mundo! ¡La conexión con la historia nunca había sido tan emocionante!";
 
   const img = document.createElement("img");
   img.src =
@@ -43,6 +44,10 @@ export const renderHome = () => {
   divTexto.appendChild(p);
   section.appendChild(footer);
 
+  // const rootElement = document.getElementById("root");
+  // rootElement.appendChild(section)
+
   return section;
+  
 
 };

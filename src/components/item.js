@@ -16,8 +16,9 @@ export const renderItems = (dataset) => {
 
     ul.appendChild(li);
 
-    return ul;
+    
   });
+  return ul;
 
 };
 
