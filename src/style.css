@@ -92,12 +92,12 @@ ul {
 }
 
 /* Estilos específicos para la imagen dentro de la tarjeta */
-.targeta img {
-  max-width: 300px;
-  height: 400px;
-  border-radius: 4px;
+  .targeta img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
   
-}
+
 
 /* Estilos para el título de la tarjeta */
 .targeta h2 {

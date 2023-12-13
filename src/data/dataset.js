@@ -302,7 +302,7 @@ export default [
 "name": "Jocelyn Bell Burnell",
 "shortDescription": "Astrónoma y astrofísica, co-descubridora de los púlsares.",
 "description": "Astrofísica británica, es una figura extraordinaria en la ciencia. Durante su doctorado, hizo un descubrimiento revolucionario al detectar los primeros púlsares, estrellas de neutrones altamente magnetizadas que emiten pulsos regulares de radiación. A pesar de que su asesor recibió el Premio Nobel por este descubrimiento, Bell Burnell se ha convertido en un símbolo de perseverancia y contribución de las mujeres a la astronomía. Su carrera distinguida y su activismo en favor de la diversidad de género en la ciencia han inspirado a generaciones futuras de científicas. Jocelyn Bell Burnell es un ejemplo de valentía y excelencia científica.",
-"imageUrl": "https://laboratoria-dataverse-talks.netlify.app/public/jocelyn-bell-burnell.jpg",
+"imageUrl": "https://th.bing.com/th/id/OIG.Dy0fD24tXg6UYK.ujLPh?w=1024&h=1024&rs=1&pid=ImgDetMain",
 "facts": {
   "yearOfBirth": "1943",
   "birthPlace": "Belfast, Reino Unido",
