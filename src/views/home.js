@@ -34,6 +34,9 @@ export const renderHome = () => {
     "https://th.bing.com/th/id/OIG.DoMIBsWKs1zwyNIFUarG?w=270&h=270&c=6&r=0&o=5&pid=ImgGn";
   img.alt = "programadora Ada";
 
+  
+
+
   // Append elements to their respective parents
   section.appendChild(header);
   section.appendChild(divContenedor);

@@ -33,6 +33,13 @@ header nav a {
   font-size: 24px;
 }
 
+.filterDiv{
+  background-color: rgb(252, 252, 252);
+  margin-top: 40px;
+  padding: 20px;
+
+}
+
 /* Estilo vista home*/
 
 .sectionHome {
