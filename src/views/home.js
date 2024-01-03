@@ -37,7 +37,7 @@ export const renderHome = () => {
   
 
 
-  // Append elements to their respective parents
+  
   section.appendChild(header);
   section.appendChild(divContenedor);
   divContenedor.appendChild(divTexto);

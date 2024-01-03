@@ -9,7 +9,7 @@ export const filterData = (data, filterBy, value) => {
     });
   };
 
-  export function sortData(data, sortBy, sortOrder) {
+  export  function sortData(data, sortBy, sortOrder) {
     // Hace una copia de los datos para no modificar el array original
     return data.slice().sort((a, b) => {
       // Si se está ordenando por "name"
@@ -30,17 +30,10 @@ export const filterData = (data, filterBy, value) => {
   
   export function computeStats(data) {
     const totalItems = data.length;
-    const totalDescriptionLength = data.reduce(
-      // Suma la longitud de todas las descripciones en el conjunto de datos
-      (sum, object) => sum + object.description.length,
-      0
-    );
   
-    // Calcula la longitud promedio de las descripciones
-    const avgDescriptionLength = totalDescriptionLength / totalItems;
+  
   
     return {
       totalItems,
-      avgDescriptionLength,
     };
   }

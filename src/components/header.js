@@ -24,8 +24,8 @@ export const renderHeader = () => {
   nav.appendChild(chatGrupalLink);
 
   const loginLink = document.createElement("a");
-  loginLink.href = "#login";
-  loginLink.textContent = "Login";
+  loginLink.href = "/api-key";
+  loginLink.textContent = "Desbloquear Chat";
   nav.appendChild(loginLink);
 
   header.appendChild(nav);

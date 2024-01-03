@@ -1,4 +1,6 @@
 
+import { navigateTo } from "../router.js"; 
+
 export const renderItems = (dataset) => {
   const ul = document.createElement("ul");
 
@@ -14,11 +16,30 @@ export const renderItems = (dataset) => {
       <h4 class="añoDeNacimiento" itemprop="año de nacimiento">${element.facts.yearOfBirth}</h4>
       `;
 
-    ul.appendChild(li);
+      // const apiSaved = localStorage.getItem("apiKey");
+
+      li.addEventListener("click", (e) => {
+        e.preventDefault();
+  
+        // if (apiSaved === null) {
+        //   navigateTo("/api-key");
+        // } else {
+          navigateTo(`/detalle-${element.id}`, element);
+        // }
+      });
+  
+      ul.appendChild(li);
+    });
+  
+  
+    const rootElement = document.getElementById("root");
+    rootElement.appendChild(ul);
+
+  //   ul.appendChild(li);
 
     
-  });
-  return ul;
+  // });
+   return ul;
 
 };
 

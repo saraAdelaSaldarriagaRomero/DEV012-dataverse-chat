@@ -22,18 +22,25 @@ TODO:
 
 import { renderHome } from "./views/home.js";
 import { renderTargetas } from "./views/targetas.js";
-// import { renderChatGrupal} from "./views/chatGrupal.js";
+import { renderChatGrupal} from "./views/chatGrupal.js";
+import { renderApiKey} from "./views/apiKey.js";
+import { renderCharacters } from "./views/detallePersonaje.js";
 import { onURLChange, setRootElement, setRoutes } from "./router.js";
 import { error } from "./views/error.js";
+import dataset from "./data/dataset.js";
 
 const routes = {
   "/": renderHome,
   "/error": error,
   "/conocenos": renderTargetas,
-  // "/chat-grupal": renderChatGrupal,
-  // "/api-key": renderApiKey,
+  "/chat-grupal": renderChatGrupal,
+  "/api-key": renderApiKey,
 
 };
+
+dataset.forEach((element) => {
+  routes[`/detalle-${element.id}`] = renderCharacters;
+});
 
 
 const rootRender = document.querySelector("#root");
