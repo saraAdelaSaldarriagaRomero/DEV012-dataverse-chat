@@ -47,9 +47,7 @@ export const renderHome = () => {
   divTexto.appendChild(p);
   section.appendChild(footer);
 
-  // const rootElement = document.getElementById("root");
-  // rootElement.appendChild(section)
-
+  
   return section;
   
 

@@ -33,7 +33,7 @@ const routes = {
   "/": renderHome,
   "/error": error,
   "/conocenos": renderTargetas,
-  "/chat-grupal": renderChatGrupal,
+  "/panel": renderChatGrupal,
   "/api-key": renderApiKey,
 
 };

@@ -16,16 +16,16 @@ export const renderItems = (dataset) => {
       <h4 class="añoDeNacimiento" itemprop="año de nacimiento">${element.facts.yearOfBirth}</h4>
       `;
 
-      // const apiSaved = localStorage.getItem("apiKey");
+      const apiSaved = localStorage.getItem("apiKey");
 
       li.addEventListener("click", (e) => {
         e.preventDefault();
   
-        // if (apiSaved === null) {
-        //   navigateTo("/api-key");
-        // } else {
+        if (apiSaved === null) {
+          navigateTo("/api-key");
+        } else {
           navigateTo(`/detalle-${element.id}`, element);
-        // }
+        }
       });
   
       ul.appendChild(li);
@@ -35,10 +35,7 @@ export const renderItems = (dataset) => {
     const rootElement = document.getElementById("root");
     rootElement.appendChild(ul);
 
-  //   ul.appendChild(li);
 
-    
-  // });
    return ul;
 
 };

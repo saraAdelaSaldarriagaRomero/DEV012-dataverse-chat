@@ -19,7 +19,7 @@ export const renderHeader = () => {
   nav.appendChild(conocenosLink);
 
   const chatGrupalLink = document.createElement("a");
-  chatGrupalLink.href = "/chat-grupal";
+  chatGrupalLink.href = "/panel";
   chatGrupalLink.textContent = "Chat Grupal";
   nav.appendChild(chatGrupalLink);
 

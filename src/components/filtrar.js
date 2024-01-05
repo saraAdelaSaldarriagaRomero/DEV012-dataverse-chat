@@ -1,5 +1,3 @@
-
-
 export const renderFilter = () => {
     // Crear el contenedor principal para el filtro
     const filter = document.createElement("div");

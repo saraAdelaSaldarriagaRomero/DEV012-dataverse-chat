@@ -22,18 +22,12 @@ export const renderTargetas= () => {
 
 
 
-    
-
     const header = renderHeader();
     const filter = renderFilter ();
     const items = renderItems (dataset);
     const footer = renderFooter();
 
-   
-   
-
-
-
+  
    
    section.appendChild(header);
    section.appendChild(filter);

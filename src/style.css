@@ -262,3 +262,70 @@ button:hover {
 
 
 
+
+
+
+/* Estilos para el contenedor principal del chat */
+#chatContainer {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Estilos para la sección de chat */
+#chatSection {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+/* Estilos para la caja de texto y el botón */
+.divTextarea {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+#inputChat {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#sendButton {
+  background-color: #392de9;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#sendButton:hover {
+  background-color: #3450ec;
+}
+
+/* Estilos para la respuesta del chat */
+p {
+  margin: 10px 0;
+}
+
+p.blue-text {
+  color: blue;
+}
+
+p.red-text {
+  color: red;
+  font-size: 18px;
+}
+
+/* Estilos para el error de autenticación */
+.error-message {
+  color: red;
+  font-size: 18px;
+}
+

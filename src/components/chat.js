@@ -1,52 +1,83 @@
-export const renderChat = (element) => { // entre los parametros se debe agregar un argumento element que despues se ua en una funcion
-  const section = document.createElement("section");
-  
 
-  const divContenedor = document.createElement("div");
-  divContenedor.id = "contenedorChat";
-  divContenedor.classList.add("contenedorChat");
-
-  const divChat = document.createElement("div");
-  divChat.classList.add("textoChat");
-
-  const chatContainer = document.createElement("div");
-  chatContainer.id = "chatContainer";
-  chatContainer.classList.add("chatContainer");
+import { openIAapi, openIAapiIndividual } from "../lib/chatApi.js";
+import { characters } from "../lib/chatApi.js";
 
 
-  const mensajeInput = document.createElement("input");
-  mensajeInput.type = "text";
-  mensajeInput.placeholder = "¡Hola! Empieza a chatear aquí...";
+export const renderChat = (element) => {
+  const container = document.createElement("div");
+  container.id = "chatContainer";
+  const chatSection = document.createElement("section");
+  chatSection.id = "chatSection";
+  const divTextarea = document.createElement("div");
+  divTextarea.classList.add("divTextarea")
+  const inputChat = document.createElement("input");
+  inputChat.id = "inputChat";
+  inputChat.placeholder = "¡Hola! Empieza a chatear aquí...";
+  const sendButton = document.createElement("button");
+  sendButton.id = "sendButton";
+  sendButton.innerHTML = `<i class="bi bi-send"></i>`;
 
-  const botonEnviar = document.createElement("button");
-  botonEnviar.type = "button"; // Añade este tipo para evitar el envío del formulario
-  botonEnviar.textContent = "Enviar";
-  botonEnviar.addEventListener("click", enviarMensaje);
+  sendButton.addEventListener("click", () => {
 
-  function enviarMensaje() {
-    const mensaje = mensajeInput.value.trim();
-    if (mensaje !== "") {
-      agregarMensaje("Tú", mensaje);
-      mensajeInput.value = "";
-      chatContainer.scrollTop = chatContainer.scrollHeight;
+    const mensajeInput  = container.querySelector("#inputChat").value;
+    const showUserText = document.createElement("p");
+
+
+    showUserText.innerHTML = mensajeInput;
+    showUserText.style.color = "blue"
+    chatSection.appendChild(showUserText);
+
+    const clearTextarea = container.querySelector("#inputChat");
+    clearTextarea.value = "";
+    const route = window.location.pathname;
+    if (route === "/panel") {
+
+      openIAapi(characters,mensajeInput)
+        .then((response) => //{if (response.status === 401 || response.status === 403) {
+          //throw new Error("Error de autenticación: Token inválido o faltante.");}
+          response.json())
+
+        .then((data) => {
+          const apiAnswer = document.createElement("p");
+          apiAnswer.innerHTML = data.choices[0].message.content;
+          chatSection.appendChild(apiAnswer);
+        })
+
+        .catch((error) => {
+          console.error("Error en la solicitud:", error);
+          const apiError = document.createElement("p");
+          apiError.innerHTML = "Authentication error: invalid or missing token.";
+          apiError.style.color = "red";
+          apiError.style.fontSize = "25px";
+          container.appendChild(apiError);
+        })
+    } else {
+      openIAapiIndividual(element.name,mensajeInput)
+        .then((response) =>
+          // {if (response.status === 401 || response.status === 403) {
+          //   throw new Error("Error de autenticación: Token inválido o faltante.");}
+          response.json())
+
+        .then((data) => {
+          const apiAnswer = document.createElement("p");
+          apiAnswer.innerHTML = data.choices[0].message.content;
+          chatSection.appendChild(apiAnswer);
+        })
+
+        .catch((error) => {
+          console.error("Error en la solicitud:", error);
+          const apiError = document.createElement("p");
+          apiError.innerHTML = "Authentication error: invalid or missing token.";
+          apiError.style.color = "red";
+          apiError.style.fontSize = "25px";
+          container.appendChild(apiError);
+        })
     }
-  }
+  });
+  container.appendChild(chatSection);
+  divTextarea.appendChild(inputChat);
+  divTextarea.appendChild(sendButton);
+  container.appendChild(divTextarea);
 
-  function agregarMensaje(sender, text) {
-    const mensajeElement = document.createElement("div");
-    mensajeElement.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatContainer.appendChild(mensajeElement);
-  }
-  
-
-  // section.appendChild(header);
-  section.appendChild(divContenedor);
-  divContenedor.appendChild(divChat);
-  divChat.appendChild(chatContainer);
-  divChat.appendChild(mensajeInput);
-  divChat.appendChild(botonEnviar);
-
-  // section.appendChild(footer);
-
-  return section;
-  };
+  return container;
+};

@@ -1,40 +1,60 @@
 
 import { renderHeader } from "../components/header.js";
 import { renderFooter } from "../components/footer.js";
+import { navigateTo } from "../router.js";
+import { openIAapiIndividual } from "../lib/chatApi.js";
 
 export const renderApiKey = () => {
-    const section = document.createElement("section");
+  
+  const header = renderHeader();
+  const footer = renderFooter();
 
-    const divClaveModule = document.createElement("div");
-    divClaveModule.classList.add("claveModule");
-
-    const claveInput = document.createElement("input");
-    claveInput.type = "password";
-    claveInput.placeholder = "Ingresa tu clave...";
-
-    const botonEnviar = document.createElement("button");
-    botonEnviar.type = "button";
-    botonEnviar.textContent = "Enviar";
-    botonEnviar.addEventListener("click", enviarMensaje);
-
-    function enviarMensaje() {
-        const clave = claveInput.value.trim();
-        if (clave !== "") {
-            // Lógica para enviar la clave (puedes emitir un evento o llamar a una función, por ejemplo)
-            console.log("Clave ingresada:", clave);
-            claveInput.value = "";
-        }
-    }
-
-    divClaveModule.appendChild(claveInput);
-    divClaveModule.appendChild(botonEnviar);
-
-    const header = renderHeader();
-    const footer = renderFooter();
-
-    section.appendChild(header);
-    section.appendChild(divClaveModule); // Agregar divClaveModule en lugar de claveInput directamente
-    section.appendChild(footer);
-
-    return section;
-}
+  const section = document.createElement("section");
+  const apiContainer = document.createElement("div");
+  apiContainer.classList.add("apiContainer");
+  const label = document.createElement("label");
+  label.innerHTML = "";
+  label.classList.add("apiLabel");
+  const input = document.createElement("input");
+  input.type = "password";
+  input.placeholder = "Ingresa la clave";
+  input.id = "inputApiKey";
+  input.style.display = "block"
+  const divApiButtons = document.createElement("div");
+  divApiButtons.classList.add("divApiButtons");
+  const apiKeyButton = document.createElement("button");
+  apiKeyButton.id = "apiKeyButton";
+  apiKeyButton.classList.add("buttonKey");
+  apiKeyButton.innerHTML = "Guardar";
+  const apiKeyButtonClear = document.createElement("button");
+  apiKeyButtonClear.id = "apiKeyButtonClear";
+  apiKeyButtonClear.classList.add("buttonKey");
+  apiKeyButtonClear.innerHTML = "Borrar";
+  apiKeyButton.addEventListener("click", (element) => {
+    localStorage.setItem("apiKey", input.value);
+    const mensajeInput = "hola";
+    openIAapiIndividual(element.name, mensajeInput)
+      .then((response) => {
+        if (response.status === 401 || response.status === 403) {
+          console.error("Error en la solicitud:");
+          alert("Authentication error: invalid or missing token.");
+        } else { navigateTo("/") }
+        response.json()
+      })
+  })
+    
+  apiKeyButtonClear.addEventListener("click", () => {
+    localStorage.removeItem("apiKey");
+    input.value = "";
+  });
+  section.appendChild(header);
+  apiContainer.appendChild(label);
+  apiContainer.appendChild(input);
+  divApiButtons.appendChild(apiKeyButton);
+  divApiButtons.appendChild(apiKeyButtonClear);
+  apiContainer.appendChild(divApiButtons);
+  section.appendChild(apiContainer);
+  section.appendChild(footer);
+ 
+  return section;
+};
