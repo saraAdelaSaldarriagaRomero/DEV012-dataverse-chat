@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -7,22 +6,21 @@ body {
 section{
   width: 100%;
   height: 100%;
-  background-color: rgb(203, 221, 245);
+  background-color: rgb(223, 237, 255);
   margin: 0;
   padding: 20x;
 }
-header {
+
+
+/* Estilos generales */
+.header {
+  border: 0;
   background-color: #3498db; 
   padding: 20px; 
-
 }
 
-header nav a img{
-  width:100px ;
-  height: auto;
-}
-
-header nav a {
+nav a {
+  margin-right: 20px;
   background-color: blue;
   text-decoration: none; /* Elimina el subrayado predeterminado */
   color: #e7ecf0; /* Cambia el color del texto del enlace */
@@ -33,19 +31,40 @@ header nav a {
   font-size: 24px;
 }
 
-.filterDiv{
-  background-color: rgb(252, 252, 252);
-  margin-top: 40px;
+
+/* Media query para pantallas más pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+  .header {
+    background-color: #3498db; 
+    padding: 10px; 
+  }
+
+  nav a {
+    display: block; /*el elemento debe comportarse como un bloque.*/
+    margin: 10px 0;
+    width:200px ;
+    height:20px ;
+  }
+}
+
+
+/* Estilo base para el footer */
+footer {
+  background-color: #3498db;
   padding: 20px;
-
+  color: #ffffff; /* Color del texto en el footer */
+  text-align: center;
 }
 
-/* Estilo estadisticas*/
-h3{margin-left: 20px;
-
+/* Regla de medios para pantallas más pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+  footer {
+    padding: 10px;
+  }
 }
 
-/* Estilo vista home*/
+
+/* VISTA HOME*/
 
 .sectionHome {
   display: flex;
@@ -57,10 +76,6 @@ h3{margin-left: 20px;
   justify-content: space-between;
   align-items: center;
   padding: 20px; 
-}
-
-.imagenHome {
-  flex-basis: 40%;
 }
 
 .textoHome {
@@ -77,69 +92,96 @@ img {
   height: 500px;
   border-radius: 10px;
 }
+@media (max-width: 768px) {
+  .contenedorHome {
+    display: block;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .textoHome p {
+    font-size: 16px;
+  }
+}
 
 
+/* VISTA CONOCENOS*/
 
-/* Estilo para el contenedor de la targetas*/
+.filterDiv{
+  background-color: rgb(252, 252, 252);
+  margin-top: 40px;
+  padding: 20px;
+
+}
+
+/* Estilo estadisticas*/
+h3{
+  margin-left: 20px;
+  color: #333;   
+}
+
 ul {
   
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* Ajusta según tus preferencias */
-    list-style-type: none;
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Ajusta según tus preferencias */
+  list-style-type: none;
+
 }
 
 
 .targeta {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 15px;
-  background-color: #fff;
-  width: 30%; 
-  box-sizing: border-box;
-  align-items: center;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin: 10px;
+padding: 15px;
+background-color: #fff;
+width: 30%; 
+box-sizing: border-box;
+align-items: center;
 }
 
 /* Estilos específicos para la imagen dentro de la tarjeta */
-  .targeta img {
-    max-width: 100%;
-    border-radius: 4px;
-  }
-  
+.targeta img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
 
 
 /* Estilos para el título de la tarjeta */
 .targeta h2 {
-  color: #333;
-  font-size: 1.5em;
-  margin-bottom: 10px;
+color: #333;
+font-size: 1.5em;
+margin-bottom: 10px;
 }
 
 /* Estilos para la descripción de la tarjeta */
 .targeta .descripcion {
-  color: #666;
-  font-size: 1em;
-  line-height: 1.4;
+color: #666;
+font-size: 1em;
+line-height: 1.4;
 }
 
 /* Estilos para el año de nacimiento en la tarjeta */
 .targeta .añoDeNacimiento {
-  color: #333;
-  font-size: 1em;
+color: #333;
+font-size: 1em;
 }
 
-footer{
-  background-color: blue;
-  color: #e7ecf0; /* Cambia el color del texto del enlace */
-  margin: 0px;
-  padding: 10px;
-  font-size: 24px;
-
+@media (max-width: 768px) {
+  .targeta {
+    width: 100%; /* Ajusta según tus preferencias */
+    margin-left: 0;
+  }
 }
 
+
+/* VISTA CHAT INDIVIDUAL*/
 
 .chat {
   width: 1000px;
@@ -150,79 +192,195 @@ footer{
 
 /* Estilos para la información del chat */
 .infoChat {
-  margin: 0;
+  margin: 10px;
   text-align: left; /* Centra el texto */
   max-width: 500px; /* Establece la anchura máxima según sea necesario */
+  font-size: 15px;
   
 }
 
-/* .img-chat {
-  max-width: 40%;
-  padding: 10px;
-  box-sizing: border-box;
+/* Estilos para el contenedor principal del chat */
+#chatContainer {
+  width: 900px;
+  margin: 0px auto;
+  background-color: #dbf4fa;
+  box-shadow: 0 0 10px rgba(15, 15, 15, 0.1);
+  border-radius: 8px;
 }
 
-.img-chat img {
-  max-width: 100%;
-  height: auto;
-}  */
+/* Estilos para la sección de chat */
+#chatSection {
+  margin: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+}
 
-/* Estilos para la tarjeta de chat */
+/* Estilos para la caja de texto y el botón */
+.divTextarea {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+#inputChat {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#sendButton {
+  background-color: #1708e9;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+}
+
+#sendButton:hover {
+  background-color: #3450ec;
+}
+
+/* Estilos para la respuesta del chat */
+p {
+  margin: 10px 10px 10px 10px;
+}
+
+p.blue-text {
+  color: blue;
+}
+
+p.red-text {
+  color: red;
+  font-size: 18px;
+}
+
+/* Estilos para el error de autenticación */
+.error-message {
+  color: red;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .chat {
+    display: block;
+    padding: 10px;
+    margin-left: 0;
+  }
+
+  #chatContainer{
+    margin-top: 30px ;
+    width: 500px;
+    margin: 0;
+    background-color: #b8dff1;
+    align-items: center;
+  }
+
+  #chatSection{
+    margin-top: 20px;
+  }
+
+  #inputChat {
+    
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .infoChat {
+    margin: 20px;
+    text-align: left; /* Centra el texto */
+    max-width: 500px; /* Establece la anchura máxima según sea necesario */
+    font-size: 14px;
+    
+  }
+
+  #sendButton {
+    background-color: #0970a0;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+  }
+}
 
 
-/* Estilos Chat Grupal*/
+/* VISTA CHAT GRUPAL*/
+
 #contenedorChatGrupal {
   display: flex;
-  padding: 50px;
-   margin-left: 200px;
+  margin: 30px;
+  width: 900px;
 }
-
-.imagenChatGrupal {
-  max-width: 40%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.imagenChatGrupal img {
-  max-width: 100%;
-  height: auto;
-}
-
 .textoChatGrupal {
-  max-width: 60%;
+  max-width: 40%;
   box-sizing: border-box;
   padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.chatContainer {
-  max-height: 500px;
-  height: 400px;
-  background-color: #ecf0f3;
-  overflow-y: scroll;
-  border: 1px solid #ccc;
-  padding: 10px;
-
-  margin-bottom: 10px;
+.divTextarea{
+  margin-top: 100px;
+  width: 500px;
 }
 
-input[type="text"] {
-  width: calc(100% - 30px);
-  padding: 10px;
-  margin-left: 15px;
-  margin-right: 10px;
-  box-sizing: border-box;
-  background-color: #eff2f3;
+#chatSection{
+  width: 500px;
 }
+
+#chatContainer{
+  width: 500px;
+}
+
+@media (max-width: 768px) {
+  #contenedorChatGrupal {
+    flex-direction: column;
+  
+  }
+
+  .textoChatGrupal {
+    max-width: 100%;
+  }
+
+  .divTextarea {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  #chatSection,
+  #chatContainer {
+    width: 100%;
+  }
+}
+
+
+.apiContainer{
+  align-items: center;
+  margin-top: 200px;
+  margin-right: 300px;
+  margin-bottom: 300px;
+  margin-left: 200px;
+} 
 
 button {
-  width: 400px;
-  padding: 5px;
-  margin-top: 10px;
-  margin-left:15px;
-  
+  background-color: #0e74c7;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  width: 300px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #3450ec;
 }
 
 
@@ -247,85 +405,4 @@ input[type="password"] {
   border-radius: 4px;
 }
 
-button {
-  background-color: #392de9;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3450ec;
-}
-
-
-
-
-
-
-/* Estilos para el contenedor principal del chat */
-#chatContainer {
-  max-width: 800px;
-  margin: 50px auto;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-/* Estilos para la sección de chat */
-#chatSection {
-  max-height: 400px;
-  overflow-y: auto;
-  padding: 15px;
-}
-
-/* Estilos para la caja de texto y el botón */
-.divTextarea {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-}
-
-#inputChat {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-#sendButton {
-  background-color: #392de9;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#sendButton:hover {
-  background-color: #3450ec;
-}
-
-/* Estilos para la respuesta del chat */
-p {
-  margin: 10px 0;
-}
-
-p.blue-text {
-  color: blue;
-}
-
-p.red-text {
-  color: red;
-  font-size: 18px;
-}
-
-/* Estilos para el error de autenticación */
-.error-message {
-  color: red;
-  font-size: 18px;
-}
 

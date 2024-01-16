@@ -10,43 +10,56 @@ export const renderApiKey = () => {
   const footer = renderFooter();
 
   const section = document.createElement("section");
+
+
   const apiContainer = document.createElement("div");
   apiContainer.classList.add("apiContainer");
+  
   const label = document.createElement("label");
   label.innerHTML = "";
   label.classList.add("apiLabel");
+  
   const input = document.createElement("input");
   input.type = "password";
   input.placeholder = "Ingresa la clave";
   input.id = "inputApiKey";
   input.style.display = "block"
+  
   const divApiButtons = document.createElement("div");
   divApiButtons.classList.add("divApiButtons");
+  
   const apiKeyButton = document.createElement("button");
   apiKeyButton.id = "apiKeyButton";
   apiKeyButton.classList.add("buttonKey");
-  apiKeyButton.innerHTML = "Guardar";
+  apiKeyButton.innerHTML = "Acceder";
+  
   const apiKeyButtonClear = document.createElement("button");
   apiKeyButtonClear.id = "apiKeyButtonClear";
   apiKeyButtonClear.classList.add("buttonKey");
   apiKeyButtonClear.innerHTML = "Borrar";
+ 
   apiKeyButton.addEventListener("click", (element) => {
     localStorage.setItem("apiKey", input.value);
     const mensajeInput = "hola";
     openIAapiIndividual(element.name, mensajeInput)
       .then((response) => {
         if (response.status === 401 || response.status === 403) {
+          // eslint-disable-next-line
           console.error("Error en la solicitud:");
           alert("Authentication error: invalid or missing token.");
-        } else { navigateTo("/") }
+        } else { navigateTo("/conocenos") }
         response.json()
       })
   })
     
+
   apiKeyButtonClear.addEventListener("click", () => {
     localStorage.removeItem("apiKey");
     input.value = "";
   });
+
+
+
   section.appendChild(header);
   apiContainer.appendChild(label);
   apiContainer.appendChild(input);

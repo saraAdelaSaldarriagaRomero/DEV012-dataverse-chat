@@ -6,7 +6,6 @@
  import { computeStats } from "../lib/dataFunctions.js";
  import { renderItems } from "../components/item.js";
  import dataset from "../data/dataset.js";
- import { navigateTo } from "../router.js";
  import { renderFilter } from "../components/filtrar.js";
 
 

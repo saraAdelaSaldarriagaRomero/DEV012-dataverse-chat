@@ -44,7 +44,8 @@ export const renderChat = (element) => {
         })
 
         .catch((error) => {
-          console.error("Error en la solicitud:", error);
+          // eslint-disable-next-line
+          console.error("Error en la solicitud:", error); // aqui sale un error warning
           const apiError = document.createElement("p");
           apiError.innerHTML = "Authentication error: invalid or missing token.";
           apiError.style.color = "red";
@@ -65,6 +66,7 @@ export const renderChat = (element) => {
         })
 
         .catch((error) => {
+          // eslint-disable-next-line
           console.error("Error en la solicitud:", error);
           const apiError = document.createElement("p");
           apiError.innerHTML = "Authentication error: invalid or missing token.";

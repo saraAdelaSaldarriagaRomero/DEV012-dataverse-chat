@@ -6,6 +6,7 @@ export const characters = dataset.map(element => element.name);
 
 export function openIAapi(character, mensajeInput) {
   const apiKey = localStorage.getItem("apiKey");
+  // eslint-disable-next-line
   console.log(apiKey);
   const data = {
     model: "gpt-3.5-turbo",
